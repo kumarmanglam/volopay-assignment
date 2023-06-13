@@ -1,10 +1,11 @@
-import Header from "./components/Header";
+import { BrowserRouter, Outlet } from "react-router-dom";
+import RouterContainer from "./routes";
 
 function App() {
   return (
-    <>
-      <Header />
-    </>
+    <BrowserRouter>
+      <RouterContainer />
+    </BrowserRouter>
   );
 }
 
