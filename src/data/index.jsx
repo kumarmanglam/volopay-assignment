@@ -10,7 +10,6 @@ export const getData = (appliedFilter) => {
     status: null,
     ...appliedFilter,
   };
-  console.log(appliedFilter);
   const filteredData = API_DATA.data.filter((item) => {
     const matchesSearchQuery =
       searchQuery.length === 0 ||
@@ -27,14 +26,6 @@ export const getData = (appliedFilter) => {
     (pageNumber - 1) * limit < 0 ? 0 : (pageNumber - 1) * limit,
     pageNumber * limit
   );
-
-  // return new Promise((resolve, reject) => {
-  //   setTimeout(() => {
-  //     const newdata = { message: "Data fetched successfully", data.data };
-
-  //     resolve(newdata);
-  //   }, 0);
-  // });
 
   return data;
 };

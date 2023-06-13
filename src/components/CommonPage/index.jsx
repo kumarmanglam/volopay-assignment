@@ -1,26 +1,60 @@
 import React, { useCallback, useEffect, useState } from "react";
 import Card from "../Card";
 import { getData } from "../../data";
+import FilterDropdown from "../FilterDropdown";
 
 function CommonPage({ pageType }) {
   const [data, setData] = useState([]);
+  const [search, setSearch] = useState("");
+  const [filter, setFilter] = useState("");
+  const [pageNumber, setPageNumber] = useState(1);
   // const [loader, setloader] = useState(true);
 
   let loadMoreData = useCallback(() => {
+    // setloader(true);
     const newdata = getData({
+      searchQuery: search,
+      cardType: filter,
+      pageNumber,
       ...(pageType === "your" ? { ownerId: 2 } : {}),
       ...(pageType === "blocked" ? { status: "block" } : {}),
     });
-    setData([...newdata]);
+    if (pageNumber === 1) {
+      setData([...newdata]);
+    } else {
+      setData((prevData) => [...prevData, ...newdata]);
+    }
     // setloader(false);
-  }, [pageType]);
+  }, [pageNumber, pageType, filter, search]);
 
   useEffect(() => {
+    console.log("filter changed");
+    setPageNumber(1);
     loadMoreData();
-  }, []);
+    console.log({ pageNumber });
+  }, [filter, search]);
 
   return (
     <div className="parent">
+      <div className="actions flex">
+        <input
+          className="input"
+          placeholder="Search here..."
+          type="search"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <div className="filter">
+          <FilterDropdown
+            onSelect={(option) => setFilter(option)}
+            options={[
+              { label: "All", value: "" },
+              { label: "Burner", value: "burner" },
+              { label: "Subscription", value: "subscription" },
+            ]}
+          />
+        </div>
+      </div>
       <div className="commonPage">
         {data.length > 0
           ? data.map((item, index) => (
@@ -37,6 +71,8 @@ function CommonPage({ pageType }) {
               />
             ))
           : null}
+        {/* {loader ? <div> Data Loading ....</div> : null}
+        {!data.length && !loader ? <div>No Data Present ...</div> : null} */}
       </div>
     </div>
   );
