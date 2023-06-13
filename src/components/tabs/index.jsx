@@ -1,5 +1,5 @@
 import Tab from "./tab";
-import { TAB_LIST } from "../common/constants";
+import { TAB_LIST } from "../../common/constants";
 
 function Tabs() {
   return (
@@ -8,7 +8,7 @@ function Tabs() {
         <Tab
           key={item.label}
           label={item.label}
-          isactive={item.path === location}
+          isactive={item.path === "/all"}
           tabPath={item.path}
         ></Tab>
       ))}

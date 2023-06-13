@@ -1,10 +1,9 @@
-import "./App.scss";
-import Tabs from "./tabs";
+import Header from "./components/Header";
 
 function App() {
   return (
     <>
-      <Tabs />
+      <Header />
     </>
   );
 }

@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 button,
 button:active,
 button:hover {
@@ -24,4 +25,5 @@ body {
 @import "./assets/styles/variables.scss";
 @import "./assets/styles/common.scss";
 @import "./assets/styles/tabs.scss";
+@import "./assets/styles/header.scss";
 @import "./App.scss";
