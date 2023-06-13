@@ -34,6 +34,23 @@ function CommonPage({ pageType }) {
     console.log({ pageNumber });
   }, [filter, search]);
 
+  // infinite scroll
+  const handleScroll = useCallback(() => {
+    const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
+
+    if (scrollTop + clientHeight >= scrollHeight - 1) {
+      setPageNumber(pageNumber + 1);
+      loadMoreData();
+    }
+  }, [loadMoreData]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [handleScroll]);
+
   return (
     <div className="parent">
       <div className="actions flex">
