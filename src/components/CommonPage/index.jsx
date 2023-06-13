@@ -8,10 +8,10 @@ function CommonPage({ pageType }) {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
   const [pageNumber, setPageNumber] = useState(1);
-  // const [loader, setloader] = useState(true);
+  const [loader, setloader] = useState(true);
 
   let loadMoreData = useCallback(() => {
-    // setloader(true);
+    setloader(true);
     const newdata = getData({
       searchQuery: search,
       cardType: filter,
@@ -24,7 +24,7 @@ function CommonPage({ pageType }) {
     } else {
       setData((prevData) => [...prevData, ...newdata]);
     }
-    // setloader(false);
+    setloader(false);
   }, [pageNumber, pageType, filter, search]);
 
   useEffect(() => {
@@ -38,7 +38,7 @@ function CommonPage({ pageType }) {
   const handleScroll = useCallback(() => {
     const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
 
-    if (scrollTop + clientHeight >= scrollHeight - 1) {
+    if (scrollTop + clientHeight >= scrollHeight - 10) {
       setPageNumber(pageNumber + 1);
       loadMoreData();
     }
@@ -88,8 +88,8 @@ function CommonPage({ pageType }) {
               />
             ))
           : null}
-        {/* {loader ? <div> Data Loading ....</div> : null}
-        {!data.length && !loader ? <div>No Data Present ...</div> : null} */}
+        {loader ? <div> Data Loading ....</div> : null}
+        {!data.length && !loader ? <div>No Data Present ...</div> : null}
       </div>
     </div>
   );
