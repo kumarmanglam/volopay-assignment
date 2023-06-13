@@ -1,0 +1,22 @@
+.tab-width {
+  width: min-content;
+}
+.tabs {
+  margin-left: 20px;
+}
+
+.tab {
+  text-transform: capitalize;
+  padding-inline: 20px;
+  color: #adb5bd;
+
+  &:hover {
+    cursor: pointer;
+    color: black;
+  }
+
+  &-active {
+    border-bottom: 4px solid #ff3366;
+    color: black;
+  }
+}

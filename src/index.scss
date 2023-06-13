@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+button,
+button:active,
+button:hover {
+  border: none;
+  background-color: transparent;
+}
+a,
+a:link {
+  text-decoration: none;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  background-color: #f1f3f5;
+  color: #495057;
+  min-height: 100vh;
+}
+
+@import "./assets/styles/variables.scss";
+@import "./assets/styles/common.scss";
+@import "./assets/styles/tabs.scss";
+@import "./App.scss";
