@@ -1,7 +1,8 @@
 import React from "react";
+import CommonPage from "../../components/CommonPage";
 
 function AllPage() {
-  return <>Allpage</>;
+  return <CommonPage />;
 }
 
 export default AllPage;

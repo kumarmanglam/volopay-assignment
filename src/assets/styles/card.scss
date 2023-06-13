@@ -1,0 +1,73 @@
+// .card > * {
+//   border: 1px solid black;
+// }
+// .card > * > * {
+//   border: 2px solid red;
+// }
+
+.card {
+  width: 500px;
+  border-radius: 5px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  box-shadow: 1px 1px 5px 5px rgba(225, 221, 221, 0.8);
+  position: relative;
+}
+.card-head {
+  padding: 10px 0;
+}
+.space-btw {
+  display: flex;
+  justify-content: space-between;
+}
+.name {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+.budgetname {
+  color: rgb(141, 142, 142);
+  font-size: 0.9rem;
+}
+.spent {
+  background-color: red;
+}
+.dot {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.font-sm {
+  font-size: 0.85rem;
+}
+.available {
+  background-color: green;
+}
+.subscription {
+  background-color: $subscription;
+}
+.burner {
+  background-color: $burner;
+}
+.expiry {
+  padding: 10px 0;
+  font-size: 0.85rem;
+}
+.card-foot {
+  padding: 10px 0;
+}
+.cardType {
+  padding: 3px 10px;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  color: white;
+  text-transform: capitalize;
+}
+.volopay-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: $volopay;
+}
